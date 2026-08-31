@@ -1,0 +1,45 @@
+.portfolio-added-logo {
+  width: 200px;
+  height: 75px;
+  margin: 10px;
+  opacity: 0.6;
+  filter: grayscale(100%);
+  transition: all 200ms ease;
+}
+
+.portfolio-added-logo:hover,
+.portfolio-added-logo.is-current {
+  opacity: 1;
+  filter: none;
+}
+
+.portfolio-missing-logo {
+  display: inline-flex;
+  width: 200px;
+  height: 75px;
+  margin: 10px;
+  align-items: center;
+  justify-content: center;
+  color: #777;
+  font-family: Montserrat, sans-serif;
+  font-size: 10px;
+  line-height: 1.4;
+  text-align: center;
+  opacity: 0.6;
+}
+
+.portfolio-missing-logo:hover {
+  opacity: 1;
+}
+
+.portfolio-added-transaction .client-content {
+  margin-top: 0;
+}
+
+@media screen and (max-width: 991px) {
+  .portfolio-added-logo,
+  .portfolio-missing-logo {
+    width: 150px;
+    height: 56px;
+  }
+}

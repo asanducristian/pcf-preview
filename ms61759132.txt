@@ -1,0 +1,5 @@
+﻿{
+  "Description": "Fișier de verificare a proprietății asupra domeniului pentru Microsoft 365 - plasați în rădăcina site-ului",
+  "Domain": "pcf.ro",
+  "Id": "91b57941-d75f-4927-bb75-4570be118386"
+}

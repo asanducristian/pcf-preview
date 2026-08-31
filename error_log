@@ -1,0 +1,2 @@
+[31-Aug-2026 02:36:10 Europe/Bucharest] PHP Warning:  file_get_contents(https://pcf.ro/uploads/Moncef_HMIOUI_MA_CV (2).docx): Failed to open stream: HTTP request failed! HTTP/1.1 400 Bad Request
+ in /home/pcfro/public_html/sendemail.php on line 9

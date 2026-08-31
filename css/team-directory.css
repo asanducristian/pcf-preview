@@ -1,0 +1,186 @@
+.team-directory {
+  width: 100%;
+  max-width: 1180px;
+  margin: 100px auto;
+  padding: 0 30px;
+}
+
+.team-group + .team-group {
+  margin-top: 70px;
+}
+
+.team-group-title {
+  margin: 0 0 24px;
+  color: #303030;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.team-layout {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.4fr);
+  gap: 70px;
+  align-items: start;
+}
+
+.team-selector-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.team-selector {
+  display: flex;
+  width: 100%;
+  padding: 16px 0;
+  border: 0;
+  border-bottom: 1px solid rgba(48, 48, 48, 0.35);
+  background: transparent;
+  color: #303030;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.team-selector::before {
+  width: 0;
+  margin-right: 0;
+  color: #303030;
+  content: '>';
+  overflow: hidden;
+  transition: width 180ms ease, margin-right 180ms ease;
+}
+
+.team-selector:hover::before,
+.team-selector[aria-selected='true']::before {
+  width: 18px;
+  margin-right: 8px;
+}
+
+.team-selector[aria-selected='true'] {
+  font-weight: 600;
+}
+
+.team-profile {
+  display: none;
+  grid-template-columns: minmax(210px, 0.75fr) minmax(0, 1.25fr);
+  gap: 30px;
+  align-items: start;
+}
+
+.team-profile.is-active {
+  display: grid;
+}
+
+.team-profile-photo {
+  width: 100%;
+  aspect-ratio: 0.905;
+  object-fit: cover;
+  background: #d8dce0;
+}
+
+.team-profile-copy {
+  color: #303030;
+}
+
+.team-profile-name {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.team-profile-role {
+  margin: 8px 0 18px;
+  color: #666;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.team-profile-short,
+.team-profile-full {
+  font-family: 'Alegreya Sans', sans-serif;
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.45;
+}
+
+.team-profile-full {
+  margin-top: 18px;
+}
+
+.team-profile-toggle {
+  margin-top: 18px;
+  padding: 0 0 5px;
+  border: 0;
+  border-bottom: 1px solid #303030;
+  background: transparent;
+  color: #303030;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.team-profile-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  margin-top: 25px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+}
+
+.team-profile-contact a {
+  color: #303030;
+  text-decoration: none;
+}
+
+.team-profile-contact a:hover {
+  text-decoration: underline;
+}
+
+.team-profile-contact .team-placeholder {
+  color: #777;
+}
+
+@media screen and (max-width: 991px) {
+  .team-directory {
+    margin: 60px auto;
+  }
+
+  .team-layout {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .team-profile {
+    grid-template-columns: minmax(180px, 0.7fr) minmax(0, 1.3fr);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .team-directory {
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+
+  .team-profile {
+    grid-template-columns: 1fr;
+  }
+
+  .team-profile-photo {
+    max-width: 330px;
+  }
+}

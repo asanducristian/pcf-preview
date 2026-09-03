@@ -1,0 +1,99 @@
+.csr-directory {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 70px 30px 110px;
+  color: #303030;
+}
+
+.csr-directory-intro {
+  max-width: 760px;
+  margin: 0 auto 52px;
+  font-family: 'Euclid Flex', Arial, sans-serif;
+  font-size: 20px;
+  line-height: 1.55;
+  text-align: center;
+}
+
+.csr-directory-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.csr-card {
+  display: flex;
+  min-height: 330px;
+  padding: 28px;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid rgba(48, 48, 48, .18);
+  background: #f4f5f7;
+  text-align: center;
+}
+
+.csr-card-logo {
+  display: block;
+  width: 150px;
+  height: 100px;
+  margin-bottom: 20px;
+  object-fit: contain;
+}
+
+.csr-card-title {
+  margin: 0 0 14px;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.csr-card-description {
+  margin: 0;
+  font-family: 'Euclid Flex', Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.csr-card.is-pending {
+  border-color: rgba(48, 48, 48, .18);
+  background: #f4f5f7;
+}
+
+.csr-card-status {
+  margin: -5px 0 16px;
+  color: #8a6a2f;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.csr-card-placeholder {
+  color: #8a6a2f;
+  font-style: italic;
+}
+
+.csr-legacy {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .csr-directory {
+    padding: 45px 20px 75px;
+  }
+
+  .csr-directory-intro {
+    margin-bottom: 32px;
+    font-size: 17px;
+  }
+
+  .csr-directory-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .csr-card {
+    min-height: 0;
+    padding: 24px 20px;
+  }
+}

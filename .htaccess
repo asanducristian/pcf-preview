@@ -1,9 +1,13 @@
 RewriteEngine On
 
-# Team URL migration: keep the existing file, expose the new public URL,
-# and preserve the old URL with a permanent redirect.
+# English team URL migration.
 RewriteRule ^our-partners/?$ /team [R=301,L,NE]
 RewriteRule ^about-us$ /about [R=301,L,NE]
+
+# Romanian team URL migration: keep the existing source file, expose /echipa,
+# and preserve both legacy Romanian URLs with permanent redirects.
+RewriteRule ^parteneri(?:\.html)?/?$ /echipa [R=301,L,NE]
+RewriteRule ^echipa/?$ parteneri.html [L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

@@ -1,3 +1,10 @@
+RewriteEngine On
+
+# Team URL migration: keep the existing file, expose the new public URL,
+# and preserve the old URL with a permanent redirect.
+RewriteRule ^our-partners/?$ /team [R=301,L,NE]
+RewriteRule ^about-us$ /about [R=301,L,NE]
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.html -f
@@ -6,7 +13,6 @@ RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /.*\.html\ HTTP/
 RewriteRule ^(.*)\.html$ /$1 [R=301,L]
 
 //Block bad bots
-RewriteEngine On 
 RewriteCond %{HTTP_USER_AGENT} ^BlackWidow [OR]
 RewriteCond %{HTTP_USER_AGENT} ^Bot\ mailto:craftbot@yahoo.com [OR]
 RewriteCond %{HTTP_USER_AGENT} ^ChinaClaw [OR]

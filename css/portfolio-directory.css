@@ -32,10 +32,6 @@
   opacity: 1;
 }
 
-.portfolio-added-transaction .client-content {
-  margin-top: 0;
-}
-
 /* The base Webflow stylesheet hides the value column. The renderer places it
    after the transaction type, and these rules keep it centered and readable. */
 .tabs-content-2 .carton > .stanga {
@@ -48,6 +44,16 @@
 
 .tabs-content-2 .carton > .stanga .rand.d {
   justify-content: center;
+}
+
+/* Some exported portfolio HTML contains a mis-encoded euro character. */
+.tabs-content-2 .carton > .stanga .rand.d .tit-crt {
+  font-size: 0;
+}
+
+.tabs-content-2 .carton > .stanga .rand.d .tit-crt::after {
+  content: "VALUE \20AC";
+  font-size: 11px;
 }
 
 .tabs-content-2 .carton > .stanga .big-nr {
@@ -72,10 +78,35 @@
   display: none;
 }
 
+.tabs-content-2 .client-content:not(.single) {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 500px));
+  justify-content: center;
+  align-items: start;
+  column-gap: 0;
+  row-gap: 35px;
+}
+
+.tabs-content-2 .client-content:not(.single) .project {
+  width: auto;
+  min-width: 0;
+}
+
+.tabs-content-2 .client-content .line-desktop,
+.tabs-content-2 .client-content .linie-mobil {
+  display: none !important;
+  margin: 0;
+  padding: 0;
+}
+
 @media screen and (max-width: 991px) {
   .portfolio-added-logo,
   .portfolio-missing-logo {
     width: 150px;
     height: 56px;
+  }
+
+  .tabs-content-2 .client-content:not(.single) {
+    grid-template-columns: minmax(0, 500px);
   }
 }

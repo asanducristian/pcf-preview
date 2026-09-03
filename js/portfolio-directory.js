@@ -77,7 +77,32 @@
 
   function transactionMarkup(transaction) {
     var value = valueParts(transaction.value);
-    return '<div class="client-content portfolio-added-transaction"><div class="project"><div class="carton"><div class="nr-big year">' + transaction.year + '</div><div class="txt-p-info c">' + transaction.description + '</div><div class="stanga"><div class="rand d"><h5 class="tit-crt">VALUE €</h5></div><div class="rand s special-hide"></div><div class="big-nr"><div class="nr-big">' + value.amount + '</div>' + (value.unit ? '<div class="nr-big light">' + value.unit + '</div>' : '') + '</div></div><div class="dreapta"><div class="rand"><h5 class="tit-crt">DETAILS</h5></div><div class="rand s"></div><div class="rand"><div class="an">' + transaction.year + '<br></div></div><div class="rand double"><div class="txt-p-info c">' + transaction.description + '</div></div></div></div></div></div>';
+    return '<div class="project portfolio-added-transaction"><div class="carton"><div class="nr-big year">' + transaction.year + '</div><div class="txt-p-info c">' + transaction.description + '</div><div class="stanga"><div class="rand d"><h5 class="tit-crt">VALUE €</h5></div><div class="rand s special-hide"></div><div class="big-nr"><div class="nr-big">' + value.amount + '</div>' + (value.unit ? '<div class="nr-big light">' + value.unit + '</div>' : '') + '</div></div><div class="dreapta"><div class="rand"><h5 class="tit-crt">DETAILS</h5></div><div class="rand s"></div><div class="rand"><div class="an">' + transaction.year + '<br></div></div><div class="rand double"><div class="txt-p-info c">' + transaction.description + '</div></div></div></div></div>';
+  }
+
+  function appendTransactions(pane, transactions) {
+    var content = pane.querySelector(':scope > .portfolio-added-transactions');
+    if (!content) {
+      content = document.createElement('div');
+      content.className = 'client-content portfolio-added-transactions';
+      pane.appendChild(content);
+    }
+    transactions.forEach(function (transaction) {
+      content.insertAdjacentHTML('beforeend', transactionMarkup(transaction));
+    });
+  }
+
+  function mergeTransactionRows(pane) {
+    var rows = Array.prototype.slice.call(pane.querySelectorAll(':scope > .client-content:not(.single)'));
+    if (rows.length < 2) return;
+
+    var first = rows[0];
+    rows.slice(1).forEach(function (row) {
+      Array.prototype.slice.call(row.querySelectorAll(':scope > .project')).forEach(function (project) {
+        first.appendChild(project);
+      });
+      row.remove();
+    });
   }
 
   function addCompanyTab(menu, content, company, language) {
@@ -92,9 +117,7 @@
     pane.className = 'w-tab-pane';
     pane.setAttribute('data-w-tab', company.name);
     pane.innerHTML = '<div class="client-title"><div class="big-heading middle">' + company.name + '</div><div class="client-separator"></div></div>';
-    company.transactions.filter(function (transaction) { return transaction.status === 'add'; }).forEach(function (transaction) {
-      pane.insertAdjacentHTML('beforeend', transactionMarkup(transaction));
-    });
+    appendTransactions(pane, company.transactions.filter(function (transaction) { return transaction.status === 'add'; }));
     content.appendChild(pane);
   }
 
@@ -110,13 +133,13 @@
       var tabName = existingTabNames[company.id];
       var pane = tabName && content.querySelector('[data-w-tab="' + tabName + '"]');
       if (pane) {
-        company.transactions.filter(function (transaction) { return transaction.status === 'add'; }).forEach(function (transaction) {
-          pane.insertAdjacentHTML('beforeend', transactionMarkup(transaction));
-        });
+        appendTransactions(pane, company.transactions.filter(function (transaction) { return transaction.status === 'add'; }));
       } else {
         addCompanyTab(menu, content, company, language);
       }
     });
+
+    content.querySelectorAll(':scope > .w-tab-pane').forEach(mergeTransactionRows);
 
     document.querySelectorAll('.tabs-content-2 .carton').forEach(function (carton) {
       var value = carton.querySelector(':scope > .stanga');

@@ -56,6 +56,14 @@
     ro: { title: 'Clienți', transactions: 'Tranzacții', added: 'De adăugat', existing: 'Există deja', hold: 'HOLD — [PCF: data needed]', missingLogo: '[PCF: data needed] Logo', details: 'Detalii', close: 'Închide detaliile' }
   };
 
+  function valueParts(value) {
+    var match = value.match(/(?:EUR|RON)\s+([\d,.]+)/);
+    if (!match) return { amount: value === '—' || value === 'Nepublicable' ? 'ND' : value, unit: '' };
+
+    var amount = parseFloat(match[1].replace(/,/g, '')) / 1000000;
+    return { amount: String(amount).replace(/\.0$/, ''), unit: 'mil' };
+  }
+
   var existingTabNames = {
     aaylex: 'Cocorico', rodbun: 'Rodbun', carmistin: 'Carmistin', vox: 'VOX',
     'mg-tec': 'MG Tec', aktor: 'Aktor', alpenside: 'Alpenside', evofarm: 'EvoFarm',
@@ -68,7 +76,8 @@
   };
 
   function transactionMarkup(transaction) {
-    return '<div class="client-content portfolio-added-transaction"><div class="project"><div class="carton"><div class="nr-big year">' + transaction.year + '</div><div class="txt-p-info c">' + transaction.description + '</div><div class="stanga"><div class="big-nr"><div class="nr-big">' + transaction.value + '</div></div></div><div class="dreapta"><div class="rand"><h5 class="tit-crt">DETAILS</h5></div><div class="rand s"></div><div class="rand"><div class="an">' + transaction.year + '<br></div></div><div class="rand double"><div class="txt-p-info c">' + transaction.description + '</div></div></div></div></div></div>';
+    var value = valueParts(transaction.value);
+    return '<div class="client-content portfolio-added-transaction"><div class="project"><div class="carton"><div class="nr-big year">' + transaction.year + '</div><div class="txt-p-info c">' + transaction.description + '</div><div class="stanga"><div class="rand d"><h5 class="tit-crt">VALUE €</h5></div><div class="rand s special-hide"></div><div class="big-nr"><div class="nr-big">' + value.amount + '</div>' + (value.unit ? '<div class="nr-big light">' + value.unit + '</div>' : '') + '</div></div><div class="dreapta"><div class="rand"><h5 class="tit-crt">DETAILS</h5></div><div class="rand s"></div><div class="rand"><div class="an">' + transaction.year + '<br></div></div><div class="rand double"><div class="txt-p-info c">' + transaction.description + '</div></div></div></div></div></div>';
   }
 
   function addCompanyTab(menu, content, company, language) {
@@ -107,6 +116,12 @@
       } else {
         addCompanyTab(menu, content, company, language);
       }
+    });
+
+    document.querySelectorAll('.tabs-content-2 .carton').forEach(function (carton) {
+      var value = carton.querySelector(':scope > .stanga');
+      var type = carton.querySelector(':scope > .txt-p-info.c');
+      if (value && type) type.insertAdjacentElement('afterend', value);
     });
   }
 

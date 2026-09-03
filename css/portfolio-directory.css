@@ -36,6 +36,42 @@
   margin-top: 0;
 }
 
+/* The base Webflow stylesheet hides the value column. The renderer places it
+   after the transaction type, and these rules keep it centered and readable. */
+.tabs-content-2 .carton > .stanga {
+  display: flex;
+  width: 100%;
+  padding: 0;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tabs-content-2 .carton > .stanga .rand.d {
+  justify-content: center;
+}
+
+.tabs-content-2 .carton > .stanga .big-nr {
+  height: 40px;
+  justify-content: center;
+}
+
+.tabs-content-2 .carton > .stanga .rand.special-hide {
+  display: none;
+}
+
+.tabs-content-2 .carton > .stanga .big-nr > .nr-big {
+  font-size: 2em;
+  letter-spacing: 0;
+}
+
+.tabs-content-2 .carton > .stanga .big-nr > .nr-big.light {
+  margin-left: 6px;
+}
+
+.tabs-content-2 .carton > .dreapta {
+  display: none;
+}
+
 @media screen and (max-width: 991px) {
   .portfolio-added-logo,
   .portfolio-missing-logo {

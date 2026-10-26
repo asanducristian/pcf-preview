@@ -42,6 +42,10 @@
   border-radius:4px;
 }
 </style>
+<style>
+/* M&A tabs: room for 4 tabs (layout below 992px was sized for 2) */
+@media screen and (max-width: 991px) { [data-ma-panel] { padding-top: 120px; } }
+</style>
 </head>
 <body>
     <div data-w-id="f851725d-5ec0-984f-275a-6a7844c4ffda" class="lg">
@@ -252,35 +256,57 @@
         </div>
         <h1 data-w-id="e61efb77-e765-e828-6316-6018e3f39a79" class="heading exp ser">EXPERTISE</h1>
         <div data-w-id="d9144c8e-565b-0b7c-ee11-fd73c58a2e9e" style="-webkit-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="ex-content-big last">
-          <ul role="list" class="list mrg w-list-unstyled">
-            <li class="list-item">
-              <div data-w-id="d9144c8e-565b-0b7c-ee11-fd73c58a2ea1" class="selector-row mrg">
-                <div data-w-id="d9144c8e-565b-0b7c-ee11-fd73c58a2ea2" class="selector mrg">&gt;</div>
-                <div data-w-id="d9144c8e-565b-0b7c-ee11-fd73c58a2ea4" class="ex-selector-title">Sell Side</div>
+          <ul role="tablist" class="list mrg w-list-unstyled">
+            <li class="list-item" data-ma-tab="0" role="tab">
+              <div class="selector-row mrg">
+                <div class="selector mrg">&gt;</div>
+                <div class="ex-selector-title">Sell Side</div>
               </div>
-              <div data-w-id="d9144c8e-565b-0b7c-ee11-fd73c58a2ea6" class="ex-selector-line mbm-exclusion"></div>
+              <div class="ex-selector-line mbm-exclusion"></div>
             </li>
-            <li class="list-item-2">
-              <div data-w-id="d9144c8e-565b-0b7c-ee11-fd73c58a2ea8" class="selector-row mrg">
-                <div data-w-id="d9144c8e-565b-0b7c-ee11-fd73c58a2ea9" class="selector mrg">&gt;</div>
-                <div data-w-id="d9144c8e-565b-0b7c-ee11-fd73c58a2eab" class="ex-selector-title">Buy Side</div>
+            <li class="list-item-2" data-ma-tab="1" role="tab">
+              <div class="selector-row mrg">
+                <div class="selector mrg">&gt;</div>
+                <div class="ex-selector-title">Buy Side</div>
               </div>
-              <div data-w-id="d9144c8e-565b-0b7c-ee11-fd73c58a2ead" class="ex-selector-line mbm-exclusion"></div>
+              <div class="ex-selector-line mbm-exclusion"></div>
+            </li>
+            <li class="list-item-2" data-ma-tab="2" role="tab">
+              <div class="selector-row mrg">
+                <div class="selector mrg">&gt;</div>
+                <div class="ex-selector-title">Leveraged Buy-Out</div>
+              </div>
+              <div class="ex-selector-line mbm-exclusion"></div>
+            </li>
+            <li class="list-item-2" data-ma-tab="3" role="tab">
+              <div class="selector-row mrg">
+                <div class="selector mrg">&gt;</div>
+                <div class="ex-selector-title">Management Buy-Out</div>
+              </div>
+              <div class="ex-selector-line mbm-exclusion"></div>
             </li>
           </ul>
           <div class="ex-content-1 mrg third">
             <h1 data-w-id="d9144c8e-565b-0b7c-ee11-fd73c58a2eaf" style="opacity:0;-webkit-transform:translate3d(40PX, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(40PX, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(40PX, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(40PX, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="ex-content-heading mrg unic">Mergers and acquisitions</h1>
             <div class="ex-content-line hide"></div>
-            <div data-w-id="d9144c8e-565b-0b7c-ee11-fd73c58a2eb5" class="ex-crp-fin-1 sser">
-              <div data-w-id="d9144c8e-565b-0b7c-ee11-fd73c58a2eb6" class="ex-colums mrg exp">
-                <div class="ex-content-text mrg black">We help maximize the client’s exit by thoroughly mapping and profiling the potential buyers and their key interests in the market. Our primary goal is to protect the interests of the seller, while closing the transaction at the best possible price.<br>‍<br> </div>
-                <div class="ex-content-text mrg ll">PCF’s consultants will guide the client through all the steps of the process from the initial assessment and preparatory work to negotiating and closing the deal, fitted to the client’s expectations.<br>‍</div>
+            <div class="ex-crp-fin-1 sser" data-ma-panel="0" role="tabpanel">
+              <div class="ex-colums mrg exp">
+                <div class="ex-content-text mrg black">We run the sale process for shareholders seeking a full or partial exit, with one objective: maximising value while protecting the seller’s interests at every stage. We prepare the company for sale, identify and profile the most suitable strategic and financial buyers, run a competitive process and manage due diligence and negotiations through to closing. We anticipate the buyers’ questions, keep the process on schedule and secure the best achievable terms for our client.</div>
               </div>
             </div>
-            <div data-w-id="d9144c8e-565b-0b7c-ee11-fd73c58a2ebb" class="ex-crp-fin-2 _3">
-              <div data-w-id="d9144c8e-565b-0b7c-ee11-fd73c58a2ebc" class="ex-colums debt exp">
-                <div class="ex-content-text mrg black">We help buyers find the most suitable investment solutions. When representing a buyer through a M&amp;A transaction, we start with a thorough evaluation of the potential acquisition target in order to establish the optimal price and structure of the transaction.<br>‍</div>
-                <div class="ex-content-text mrg exp black"><strong class="bold-text-4">Our consultants will support the buyer/investor on every step of the transaction from the initial market analysis, target identification and transaction rationale to closing the deal. </strong></div>
+            <div class="ex-crp-fin-2 _3" data-ma-panel="1" role="tabpanel" style="display:none">
+              <div class="ex-colums debt exp">
+                <div class="ex-content-text mrg black">We guide companies and investors on acquisitions, from target identification to closing, including leveraged and management buy-outs. Starting from the client’s strategic rationale, we screen the market, approach selected targets, build the valuation and transaction structure and arrange the acquisition financing where required. We coordinate due diligence and lead the negotiations with the sellers and their advisors, ensuring that the price, structure and terms agreed reflect the real value and risks of the business acquired.</div>
+              </div>
+            </div>
+            <div class="ex-crp-fin-2 _3" data-ma-panel="2" role="tabpanel" style="display:none">
+              <div class="ex-colums debt exp">
+                <div class="ex-content-text mrg black">We advise financial investors and management teams on leveraged buy-outs and arrange the acquisition financing, combining equity with acquisition debt to acquire the target company. We assess the target’s cash-flow capacity and debt-service headroom, design the optimal mix of equity and debt and arrange the acquisition financing with banks or private lenders, from term sheet to closing. Our track record includes the leveraged buy-out club loan arranged for Aaylex Group for the acquisition of Banvit Foods Romania, alongside the M&amp;A advisory on the transaction.</div>
+              </div>
+            </div>
+            <div class="ex-crp-fin-2 _3" data-ma-panel="3" role="tabpanel" style="display:none">
+              <div class="ex-colums debt exp">
+                <div class="ex-content-text mrg black">We advise management teams on buy-outs and arrange the financing, enabling them to acquire the companies they run, either independently or alongside financial investors. We assess the value of the business, structure the transaction and design a financing mix of management equity, investor capital and acquisition debt that is sustainable for the company and achievable for the team. We then lead the negotiations with the selling shareholders, investors and lenders, from the first offer through to closing and the implementation of the new ownership structure.</div>
               </div>
             </div>
           </div>
@@ -367,6 +393,7 @@
   </div>
   <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=5f142319fc99525e24b954ac" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
   <script src="js/webflow.js" type="text/javascript"></script>
+  <script src="js/ma-tabs.js" type="text/javascript"></script>
   <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
   <script type="text/javascript">
  $('body').css('overflow', 'overlay');

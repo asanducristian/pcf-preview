@@ -46,16 +46,6 @@
   justify-content: center;
 }
 
-/* Some exported portfolio HTML contains a mis-encoded euro character. */
-.tabs-content-2 .carton > .stanga .rand.d .tit-crt {
-  font-size: 0;
-}
-
-.tabs-content-2 .carton > .stanga .rand.d .tit-crt::after {
-  content: "VALUE \20AC";
-  font-size: 11px;
-}
-
 .tabs-content-2 .carton > .stanga .big-nr {
   height: 40px;
   justify-content: center;
@@ -70,8 +60,14 @@
   letter-spacing: 0;
 }
 
+/* Currency before the amount: "EUR 101.5M". */
 .tabs-content-2 .carton > .stanga .big-nr > .nr-big.light {
-  margin-left: 6px;
+  margin-right: 6px;
+}
+
+.tabs-content-2 .carton > .portfolio-beneficiary {
+  margin-top: 6px;
+  text-align: center;
 }
 
 .tabs-content-2 .carton > .dreapta {

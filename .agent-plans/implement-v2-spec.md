@@ -41,7 +41,15 @@ Placeholders are marked with `<!-- TODO PCF: ... -->` (HTML) or `// TODO PCF:` (
 12. News: add Sarmis Capital card EN + RO, apply v2 descriptions to the 5 covered cards, PetStar link via Economedia. Done when: 13 new cards at the top, Sarmis without a link button and with a TODO.
 13. CSR EN: update Magic, Aurora, Ecoland texts. Done when: `csr.html` matches the docx for those 3.
 14. CSR RO: rebuild `csr-ro.html` with intro + 8 cards, RO texts for Magic/Aurora/Ecoland, EN texts with TODO for the other 5 and the intro. Done when: no Arctic/Elbrus content on `csr-ro.html` and card layout matches EN.
-15. Portfolio logos: extract the 5 logos from the docx into the logo folder used by `portfolio-directory.js`. Done when: files exist and load.
+15. Portfolio logos: copy the logos received on 26 Oct (`livrabil/new specs/`) into `livrabil/logo_companii/` under correct names; the file names are shifted, so map by content:
+    - `Liebrecht_wooD_DRAFT.svg` → `globalworth.svg`
+    - `Biharia_Office_DRAFT.svg` → `liebrecht_wood.svg`
+    - `Frizon_DRAFT.svg` → `biharia_office.svg`
+    - `Globalworth_DRAFT.svg` → `sels_agro.svg`
+    - `download` (Sarmis, white version) → `sarmis_capital.svg`; check tile background — invisible on light tiles
+    - Frizon: not in the received files; extract from the docx (§9)
+    - `Sels_Agro_DRAFT.svg` is a macOS `.DS_Store` file, not a logo — ignore
+    Confirm with the user whether the "DRAFT" logos are approved by PCF before publishing. Done when: files exist and load on the Portfolio page.
 16. Portfolio data: reorder to the 23-client table, remove the 8, add new clients with v2 transactions (EN + RO descriptions, newest first); Sarmis as text tile. Done when: grid shows 23 clients (+ the 5 undecided until Q3) in the right order and clicking each opens sorted transactions.
 17. Portfolio "actualizat" clients: apply v2 lists once Q2/Q4/Q5 are answered. Done when: each of the 9 clients matches the confirmed rule.
 18. Final pass: search all pages for "Murgu", "FOUNDING YEAR", "314 251 400", "Arctic" on Home, and list remaining `TODO PCF` markers for the client. Done when: only the expected TODOs remain.

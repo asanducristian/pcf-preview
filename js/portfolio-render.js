@@ -2,12 +2,17 @@
   'use strict';
 
   // Builds the Portfolio logo grid and transaction panes from window.PCF_PORTFOLIO
-  // (js/portfolio-data.js). Must run before js/webflow.js so the Webflow tabs
-  // widget initialises with the generated tabs.
+  // (js/portfolio-data.js), on the Portfolio pages and in the Home Portfolio block.
+  // Must run before js/webflow.js so the Webflow tabs widget initialises with the
+  // generated tabs.
   var clients = window.PCF_PORTFOLIO;
   if (!clients) return;
 
-  var lang = window.location.pathname.indexOf('portofoliu') !== -1 ? 'ro' : 'en';
+  // Home shows these clients, in this order, with their latest transactions.
+  var HOME_CLIENTS = ['rodbun', 'mg-tec', 'pet-star', 'carmistin'];
+  var HOME_TRANSACTIONS = 3;
+
+  var lang = /portofoliu|acasa/.test(window.location.pathname) ? 'ro' : 'en';
   var labels = {
     en: { value: 'VALUE', details: 'DETAILS', beneficiary: 'beneficiary' },
     ro: { value: 'VALOARE', details: 'DETALII', beneficiary: 'Beneficiar' }
@@ -53,23 +58,40 @@
 
   var divider = '<div class="line-desktop"></div><div class="linie-mobil"><div class="line-prt-mobil"></div></div>';
 
-  function render() {
-    var menu = document.querySelector('.tabs-2 .tabs-menu');
-    var content = document.querySelector('.tabs-2 .tabs-content-2');
+  function portfolioContent(transactions) {
+    return '<div class="client-content">' + transactions.map(cardMarkup).join(divider) + '</div>';
+  }
+
+  // Home layout from the original markup: two cards on the first row, the third on its own row.
+  var mobileDivider = '<div class="linie-mobil"><div class="line-prt-mobil"></div></div>';
+
+  function homeContent(transactions) {
+    // A single card goes on the centred row.
+    if (transactions.length === 1) return '<div class="client-content-2 single nph2">' + cardMarkup(transactions[0]) + '</div>';
+    var rest = transactions.slice(2);
+    return '<div class="client-content nph1">' + transactions.slice(0, 2).map(cardMarkup).join(divider) + (rest.length ? mobileDivider : '') + '</div>' +
+      (rest.length ? '<div class="client-content-2 single nph2">' + rest.map(cardMarkup).join(divider) + '</div>' : '');
+  }
+
+  function render(menu, content, list, maxTransactions, contentMarkup) {
     if (!menu || !content) return;
 
-    menu.innerHTML = clients.map(function (c, i) {
+    menu.innerHTML = list.map(function (c, i) {
       return '<a data-w-tab="' + esc(c.id) + '" class="tab w-inline-block w-tab-link portfolio-added-tab' + (i === 0 ? ' w--current' : '') + '" aria-label="' + esc(c.name) + '">' +
         '<img class="portfolio-added-logo" src="livrabil/logo_companii/' + esc(c.logo) + '" alt="' + esc(c.name) + '"></a>';
     }).join('');
 
-    content.innerHTML = clients.map(function (c, i) {
+    content.innerHTML = list.map(function (c, i) {
       return '<div data-w-tab="' + esc(c.id) + '" class="w-tab-pane' + (i === 0 ? ' w--tab-active' : '') + '">' +
         '<div class="client-title"><div class="big-heading middle">' + esc(c.name) + '</div><div class="client-separator"></div></div>' +
-        '<div class="client-content">' + sortNewestFirst(c.transactions).map(cardMarkup).join(divider) + '</div>' +
+        contentMarkup(sortNewestFirst(c.transactions).slice(0, maxTransactions)) +
         '</div>';
     }).join('');
   }
 
-  render();
+  render(document.querySelector('.tabs-2 .tabs-menu'), document.querySelector('.tabs-2 .tabs-content-2'),
+    clients, undefined, portfolioContent);
+  render(document.querySelector('.portfolio-home .tabs-menu'), document.querySelector('.portfolio-home .tabs-content'),
+    HOME_CLIENTS.map(function (id) { return clients.filter(function (c) { return c.id === id; })[0]; }).filter(Boolean),
+    HOME_TRANSACTIONS, homeContent);
 })();

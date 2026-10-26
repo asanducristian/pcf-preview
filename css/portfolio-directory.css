@@ -48,7 +48,8 @@
 
 /* The base Webflow stylesheet hides the value column. The renderer places it
    after the transaction type, and these rules keep it centered and readable. */
-.tabs-content-2 .carton > .stanga {
+.tabs-content-2 .carton > .stanga,
+.portfolio-home .carton > .stanga {
   display: flex;
   width: 100%;
   padding: 0;
@@ -56,35 +57,42 @@
   align-items: center;
 }
 
-.tabs-content-2 .carton > .stanga .rand.d {
+.tabs-content-2 .carton > .stanga .rand.d,
+.portfolio-home .carton > .stanga .rand.d {
   justify-content: center;
 }
 
-.tabs-content-2 .carton > .stanga .big-nr {
+.tabs-content-2 .carton > .stanga .big-nr,
+.portfolio-home .carton > .stanga .big-nr {
   height: 40px;
   justify-content: center;
 }
 
-.tabs-content-2 .carton > .stanga .rand.special-hide {
+.tabs-content-2 .carton > .stanga .rand.special-hide,
+.portfolio-home .carton > .stanga .rand.special-hide {
   display: none;
 }
 
-.tabs-content-2 .carton > .stanga .big-nr > .nr-big {
+.tabs-content-2 .carton > .stanga .big-nr > .nr-big,
+.portfolio-home .carton > .stanga .big-nr > .nr-big {
   font-size: 2em;
   letter-spacing: 0;
 }
 
 /* Currency before the amount: "EUR 101.5M". */
-.tabs-content-2 .carton > .stanga .big-nr > .nr-big.light {
+.tabs-content-2 .carton > .stanga .big-nr > .nr-big.light,
+.portfolio-home .carton > .stanga .big-nr > .nr-big.light {
   margin-right: 6px;
 }
 
-.tabs-content-2 .carton > .portfolio-beneficiary {
+.tabs-content-2 .carton > .portfolio-beneficiary,
+.portfolio-home .carton > .portfolio-beneficiary {
   margin-top: 6px;
   text-align: center;
 }
 
-.tabs-content-2 .carton > .dreapta {
+.tabs-content-2 .carton > .dreapta,
+.portfolio-home .carton > .dreapta {
   display: none;
 }
 

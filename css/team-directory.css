@@ -155,6 +155,21 @@
   color: #777;
 }
 
+.team-profile-contact .team-contact-icon {
+  display: inline-flex;
+  opacity: 0.85;
+}
+
+.team-profile-contact .team-contact-icon:hover {
+  opacity: 1;
+}
+
+.team-profile-contact .team-contact-icon img {
+  display: block;
+  width: 28px;
+  height: 28px;
+}
+
 @media screen and (max-width: 991px) {
   .team-directory {
     margin: 60px auto;

@@ -1,14 +1,28 @@
-.portfolio-added-logo {
+/* Every logo sits in the same fixed box and keeps its own proportions,
+   so the grid has equal spacing and alignment whatever the image size. */
+.portfolio-added-tab {
+  display: inline-flex;
+  box-sizing: border-box;
   width: 200px;
   height: 75px;
   margin: 10px;
+  padding: 6px 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.portfolio-added-logo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   opacity: 0.6;
   filter: grayscale(100%);
   transition: all 200ms ease;
 }
 
-.portfolio-added-logo:hover,
-.portfolio-added-logo.is-current {
+.portfolio-added-tab:hover .portfolio-added-logo,
+.portfolio-added-tab.w--current .portfolio-added-logo {
   opacity: 1;
   filter: none;
 }
@@ -96,7 +110,7 @@
 }
 
 @media screen and (max-width: 991px) {
-  .portfolio-added-logo,
+  .portfolio-added-tab,
   .portfolio-missing-logo {
     width: 150px;
     height: 56px;

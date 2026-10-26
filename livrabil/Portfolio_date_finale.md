@@ -74,7 +74,7 @@ Generat din `js/portfolio-data.js`. Ordinea clienților = grila de 23 (pct. 5). 
 | An | Valoare | EN | RO | Sursă |
 |---|---|---|---|---|
 | 2017 | EUR 27.6M | Term Loan Facility | Facilitate de credit la termen | pcf.ro |
-| 2017 | EUR 4M | Medium Term Cash Loan | Medium Term Cash Loan | pcf.ro |
+| 2017 | EUR 4M | Medium Term Cash Loan | Facilitate de credit pe termen mediu | pcf.ro |
 
 ## 9. Coop. Agricolă Podișul Transilvaniei
 

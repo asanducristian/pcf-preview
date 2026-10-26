@@ -51,7 +51,7 @@ window.PCF_PORTFOLIO = [
   ] },
   { id: 'urgent-cargus', name: 'Urgent Cargus', logo: 'urgent_cargus.png', transactions: [
     { year: '2017', cur: 'EUR', amount: 27.6, en: 'Term Loan Facility', ro: 'Facilitate de credit la termen', src: 'pcf.ro' },
-    { year: '2017', cur: 'EUR', amount: 4, en: 'Medium Term Cash Loan', ro: 'Medium Term Cash Loan', src: 'pcf.ro' }
+    { year: '2017', cur: 'EUR', amount: 4, en: 'Medium Term Cash Loan', ro: 'Facilitate de credit pe termen mediu', src: 'pcf.ro' }
   ] },
   { id: 'podisul-transilvaniei', name: 'Coop. Agricolă Podișul Transilvaniei', logo: 'podisul_transilvaniei.png', transactions: [
     { year: '2026', cur: 'EUR', amount: 30, en: 'Multipurpose Financing Facility (investment loan EUR 17.0M, bridge loan EUR 9.75M, VAT facility RON 15.0M)', ro: 'Facilitate de finanțare multi-scop (credit de investiții 17,0 mil. EUR, credit punte 9,75 mil. EUR, facilitate TVA 15,0 mil. RON)' }
